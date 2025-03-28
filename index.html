@@ -69,10 +69,8 @@
                 padding: 0;
                 background-color: #000d1a;
                 color: white;
-                height: 100vh; /* Pastikan body tidak lebih dari layar */
-                overflow: hidden; /* Mencegah scroll di luar description */
             }
-            
+    
             .header {
                 background-color: #004d03;
                 color: white;
@@ -81,27 +79,25 @@
                 font-size: 24px;
                 font-weight: bold;
             }
-            
+    
             .container {
                 display: flex;
                 justify-content: space-between;
                 padding: 20px;
                 margin: 0 40px;
                 align-items: flex-start;
-                gap: 20px;
-                height: calc(100vh - 80px); /* Pastikan container tidak lebih tinggi dari layar */
+                gap: 20px; /* Tambahkan jarak antara menu dan deskripsi */
             }
-            
+    
             .menu {
                 width: 200px;
                 background-color: #29293A;
                 padding: 10px;
                 border-radius: 8px;
-                max-height: 750px;
-                margin-right: 20px;
+                max-height: 600px;
+                margin-right: 20px; /* Tambahkan jarak dari deskripsi */
             }
-
-            
+    
             .menu-item {
                 width: 100%;
                 padding: 10px;
@@ -111,28 +107,29 @@
                 cursor: pointer;
                 text-align: left;
             }
-            
+    
             .menu-item:hover {
                 background-color: #ccc;
             }
-            
+    
             .description {
+                position: relative;
                 flex: 1;
                 padding: 20px;
                 border: 1px solid #b19797;
+                height: calc(100vh - 80px);
                 border-radius: 8px;
                 text-align: justify;
                 background-size: cover;
                 background-position: center;
                 display: flex;
                 flex-direction: column;
-                max-height: 100%;
-                height: 100%; /* Pastikan tinggi mengikuti container */
+                max-height: 800px;
                 margin-left: 20px;
-                overflow-y: auto; /* Hanya bagian ini yang bisa di-scroll */
+                overflow: hidden;
             }
-            
-            /* Overlay transparan */
+    
+            /* Overlay transparan 70% */
             .description::before {
                 content: "";
                 position: absolute;
@@ -140,31 +137,37 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
-                border-radius: 7px;
+                background-color: rgba(0, 0, 0, 0.7); /* 70% gelap */
+                border-radius: 8px;
                 z-index: 1;
             }
-            
+    
             /* Pastikan teks tetap di atas overlay */
             .description-content {
                 position: relative;
                 z-index: 2;
-                overflow-y: auto; /* Bisa di-scroll hanya di dalam description */
+            }
+    
+    
+            .description-content {
+                position: relative;
+                z-index: 2;
+                overflow-y: auto;
                 max-height: 100%;
                 padding-right: 10px;
             }
-            
+    
             figure {
                 text-align: center;
                 margin: 20px 0;
             }
-            
+    
             figure img {
                 width: 100%;
                 max-width: 500px;
                 border-radius: 8px;
             }
-            
+    
             figcaption {
                 font-size: 14px;
                 color: #ddd;
