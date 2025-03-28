@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yustisio's Multidisciplinary Experiences</title>
+    <style>
+        @media (max-width: 750px) {
+            .container {
+                flex-direction: column;
+                margin: 0 10px;
+                padding: 10px;
+                align-items: center; /* Pastikan menu dan deskripsi sejajar tengah */
+                gap: 10px; /* Mengurangi jarak antar elemen */
+            }
+
+            .menu {
+                width: 90%; /* Pastikan lebar menu sama dengan deskripsi */
+                max-height: none;
+                margin-bottom: 10px; /* Mengurangi jarak dengan deskripsi */
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .description {
+                width: 90%; /* Pastikan lebar deskripsi sama dengan menu */
+                max-width: 800px; /* Maksimal lebar */
+                height: auto;
+                padding: 15px; /* Mengurangi padding agar lebih kompak */
+                font-size: 16px;
+                overflow-y: auto;
+                text-align: justify;
+                margin-left: 0; /* Hapus margin kiri agar sejajar dengan menu */
+            }
+
+            .description-content {
+                font-size: 14px;
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            figure img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .menu-item {
+                font-size: 13px;
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .description {
+                font-size: 20px; /* Ukuran teks lebih besar untuk laptop */
+            }
+
+            .menu-item {
+                font-size: 15px;
+            }
+
+        }
+            
+            body {
+                font-family: "Times New Roman", sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #000d1a;
+                color: white;
+            }
+            
+            .header {
+                background-color: #004d03;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                font-size: 24px;
+                font-weight: bold;
+            }
+            
+            .container {
+                display: flex;
+                justify-content: space-between;
+                padding: 20px;
+                margin: 0 40px;
+                align-items: flex-start;
+                gap: 20px; /* Tambahkan jarak antara menu dan deskripsi */
+            }
+            
+            .menu {
+                width: 200px;
+                background-color: #29293A;
+                padding: 10px;
+                border-radius: 8px;
+                max-height: 750px;
+                margin-right: 20px; /* Tambahkan jarak dari deskripsi */
+            }
+            
+            .menu-item {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #E63946;
+                background-color: #F77F00;
+                cursor: pointer;
+                text-align: left;
+            }
+            
+            .menu-item:hover {
+                background-color: #ccc;
+            }
+            
+            .description {
+                position: relative;
+                flex: 1;
+                padding: 20px;
+                border: 1px solid #b19797;
+                height: calc(100vh - 80px);
+                border-radius: 8px;
+                text-align: justify;
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                max-height: 800px;
+                margin-left: 20px;
+                overflow: hidden;
+            }
+            
+            /* Overlay transparan 70% */
+            .description::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7); /* 70% gelap */
+                border-radius: 8px;
+                z-index: 1;
+            }
+            
+            /* Pastikan teks tetap di atas overlay */
+            .description-content {
+                position: relative;
+                z-index: 2;
+            }
+            
+            
+            .description-content {
+                position: relative;
+                z-index: 2;
+                overflow-y: auto;
+                max-height: 100%;
+                padding-right: 10px;
+            }
+            
+            figure {
+                text-align: center;
+                margin: 20px 0;
+            }
+            
+            figure img {
+                width: 100%;
+                max-width: 500px;
+                border-radius: 8px;
+            }
+            
+            figcaption {
+                font-size: 14px;
+                color: #ddd;
+                margin-top: 5px;
+                font-style: italic;
+            }
+    </style>
+    </head>
+<body>
+    <div class="header">
+        Yustisio's Multidisciplinary Experiences
+    </div>
+
+    <div class="container">
+        <div class="menu">
+            <button class="menu-item" onclick="showDescription('Lemigas')">LEMIGAS Research</button>
+            <button class="menu-item" onclick="showDescription('EM')">Electromagnetic Laboratory Assistant</button>
+            <button class="menu-item" onclick="showDescription('PHY')">Physics Laboratory Assistant</button>
+            <button class="menu-item" onclick="showDescription('PASK')">Paskibraka</button>
+            <button class="menu-item" onclick="showDescription('Luwijawa')">Luwijawa Festival Talent</button>
+        </div>
+
+        <div class="description" id="description">
+            <div class="description-content">
+                <p>Click on a menu item to view the description here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const descriptions = {
+            'Lemigas': {
+                text: [
+                    '<p>From September 2024 to November 2024, I am participating in research at the Balai Pengujian Minyak dan Gas Bumi (Lemigas ESDM). In this research, I am processing Magnetotelluric (MT) data using the WALDIM approach with Python, which is the first time this method has been applied. This data is being utilized to delineate the potential for shale gas in Kalimantan. My work in this project has provided me with hands-on experience in geophysical data analysis, programming, and the application of innovative methods in energy exploration. It’s an exciting opportunity to contribute to the advancement of geophysical research and its practical applications in the energy sector.</p>',
+                    '<p>Through this research experience, I have gained valuable skills in data processing, particularly with the use of Python for handling complex geophysical data. Working with the WALDIM approach has allowed me to explore and apply cutting-edge techniques in magnetotelluric data analysis. Additionally, being involved in this project has given me a deeper understanding of the process of delineating shale gas potential, a crucial aspect of the energy exploration industry. Collaborating with experts at Lemigas ESDM has broadened my knowledge of the energy sector and provided me with real-world insights into geophysical methodologies. This experience has not only enhanced my technical skills but also improved my problem-solving abilities and my ability to work in a professional research environment.</p>'
+                ],
+                images: [
+                    {src: 'lemigas.jpg', caption: 'Gedung eksplorasi 3 Lemigas'}
+                ],
+                background: 'logoesdm.jpg'
+            },
+            'EM': {
+                text: [
+                    '<p>I have also had the opportunity to work as a laboratory assistant in the electromagnetic lab, where I was involved in teaching theory on various geophysical methods, including CMD, VLF, GPR, MT, and CSAMT, once a week. This role allowed me to deepen my understanding of these methods while sharing knowledge with students. In addition to teaching, I was responsible for preparing the field for practical exercises, including selecting acquisition areas and ensuring that the necessary instruments were ready for use. This experience enhanced my organizational skills and gave me hands-on experience with the practical aspects of geophysical data collection and the preparation needed for fieldwork. It also allowed me to improve my communication and teaching abilities, as I was able to explain complex concepts to students and guide them through the practical applications of these geophysical methods.</p>',
+                    '<p>Being a laboratory assistant has been a highly enriching experience for me. I gained not only a deeper understanding of electromagnetic methods but also the opportunity to develop essential skills such as leadership, teamwork, and problem-solving. Teaching weekly theory sessions allowed me to improve my communication skills and gave me the ability to simplify complex concepts for others. Additionally, preparing the field and ensuring everything was set up properly taught me about the logistical side of geophysical work, from instrument handling to site preparation. This role has been instrumental in strengthening my technical knowledge, boosting my confidence in teaching, and refining my ability to manage both academic and practical tasks in a laboratory setting.</p>'
+                ],
+                images: [
+                    { src: 'labem.jpg', caption: 'Presentasi AKhir Lab EM 2024'},
+                ],
+                background: 'logoem.jpg'
+            },
+            'PHY': {
+                text: [
+                    '<p>I also served as a laboratory assistant in the applied physics lab, where I taught weekly sessions on various topics such as GLBB (Uniformly Accelerated Motion), Optics, Viscosity, Simple Pendulum, Electrical Circuits, Density, Mathematical Pendulum, and Springs. This role allowed me to engage with students and help them understand the theoretical and practical aspects of these fundamental physics concepts. Preparing and conducting experiments provided me with hands-on experience in laboratory procedures, as well as a deeper understanding of the physical principles involved. This experience not only strengthened my teaching and communication skills but also helped me develop a solid foundation in experimental physics, which is crucial for future research and academic endeavors.</p>'
+                ],
+                images: [
+                    { src: 'labfis.jpg', caption: 'Foto studio anggota asisten laboratorium'},
+                ],
+                background: 'logofis.jpg'
+            },
+            'PASK': {
+                text: [
+                    '<p>In 2019, I had the honor of being selected as a member of the Pasukan Pengibar Bendera Pusaka (Paskibraka) for Kabupaten Tegal. I began my intense training 20 days prior to the flag-raising ceremony, where I underwent rigorous physical and mental preparation. The training was demanding, focusing on discipline, precision, and teamwork. It was a challenging but rewarding experience that required dedication and perseverance. The moment of raising the national flag was a proud achievement, and being part of such a prestigious team was an unforgettable experience.</p>',
+                    '<p>In addition to the training, I also had the privilege of representing my team during the flag-pinning ceremony, which was conducted by the Regent of Tegal. This experience allowed me to be part of a significant national tradition and participate in a moment of immense pride for the community. It was a symbol of honor and duty, and I felt a deep sense of responsibility as I stood alongside my peers, representing the strength and unity of our region. This experience strengthened my leadership, teamwork, and personal growth, making it one of the most meaningful achievements of my life.</p>'
+                ],
+                images: [
+                    {src: 'paskab (3).jpg', caption: 'Pasukan Pengibar Bendera Pusaka Kabupaten Tegal 2019'},
+                    {src: 'paskab (4).jpg', caption: 'Penyematan Paskibraka 2019 oleh Bupati Tegal'},
+                    {src: 'paskab (1).jpg', caption: 'latihan paskibraka'},
+                    {src: 'paskab (2).jpg', caption: 'latihan paskibraka'}
+                ],
+                background: 'logopaskib.jpg'
+            },
+            'Luwijawa': {
+                text: [
+                    '<p>In October 2018, I had the incredible opportunity to participate as one of the talents in the Luwijawa International Festival, held on October 27-28. As a saxophonist, I had the chance to perform alongside talented musicians and artists from around the world, including performers from countries like China, Germany, Italy, and more. The festival was a celebration of international cultural exchange, and playing in such a diverse and vibrant setting was an unforgettable experience.</p>',
+                    '<p>Performing at the Luwijawa International Festival allowed me to collaborate with professionals from different musical backgrounds and cultures, broadening my perspective on music and performance. The experience not only enhanced my skills as a saxophonist but also gave me the chance to connect with other artists and gain exposure to different musical traditions and techniques. It was a truly enriching experience that helped me grow as a musician and artist, and I am grateful to have been part of such a prestigious international event.</p>'
+                ],
+                images: [
+                    {src: 'luwijawa (2).jpg', caption: 'pamflet promosi Festival Luwijawa 2018'},
+                    {src: 'luwijawa (1).jpg', caption: 'perform Festival Luwijawa'},
+                    {src: 'luwijawa (3).jpg', caption: 'perform Festival Luwijawa'}
+                ],
+                background: 'logoluwijawa.jpg'
+            },
+        };
+
+        function showDescription(org) {
+            const data = descriptions[org];
+            if (!data) return;
+
+            const descriptionElement = document.getElementById('description');
+            descriptionElement.style.backgroundImage = `url(${data.background})`;
+
+            let contentHTML = '<div class="description-content">';
+
+            // Menampilkan semua teks terlebih dahulu
+            if (data.text && data.text.length > 0) {
+                data.text.forEach((paragraph) => {
+                    contentHTML += paragraph;
+                });
+            } else {
+                contentHTML += '<p>No description available.</p>';
+            }
+
+            // Menampilkan semua gambar setelah teks
+            if (data.images && data.images.length > 0) {
+                data.images.forEach((image) => {
+                    contentHTML += `
+                        <figure>
+                            <img src="${image.src}" alt="${image.caption}">
+                            <figcaption>${image.caption}</figcaption>
+                        </figure>
+                    `;
+                });
+            }
+
+            // Menambahkan tombol "Go to Link" jika ada link
+            if (data.link) {
+                contentHTML += `
+                    <div style="text-align: center; margin-top: 20px;">
+                        <a href="${data.link}" target="_blank" style="display: inline-block; padding: 10px 20px; background-color: #F77F00; color: white; text-decoration: none; border-radius: 5px; font-weight: bold;">
+                            Go to Link
+                        </a>
+                    </div>
+                `;
+            }
+
+            contentHTML += '</div>';
+            descriptionElement.innerHTML = contentHTML;
+        }
+
+
+    </script>
+</body>
+</html>
