@@ -5,71 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yustisio's Community Involvements Experience</title>
     <style>
-        @media (orientation: portrait) {
-            .container {
-                display: flex;
-                flex-direction: column;
-                align-items: center; /* pastikan anak-anaknya rata tengah */
-                justify-content: center;
-                margin: 0 auto;
-                padding: 10px;
-                width: 100%;
-                max-width: 100%;
-            }
-        
-            .menu,
-            .description {
-                width: 90vw; /* gunakan viewport agar fleksibel */
-                max-width: 400px; /* agar tidak terlalu lebar */
-                box-sizing: border-box;
-                margin: 0 auto;
-            }
-        
-            .menu {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                gap: 10px;
-                margin-bottom: 15px;
-            }
-        
-            .menu-item {
-                width: 100%;
-                font-size: 14px;
-                padding: 10px;
-                box-sizing: border-box;
-            }
-        
-            .description {
-                padding: 15px;
-                font-size: 16px;
-                text-align: justify;
-            }
-        
-            .description-content {
-                font-size: 14px;
-                padding: 0;
-            }
-        
-            figure img {
-                width: 100%;
-                height: auto;
-            }
-        }
-
-    
-    @media (min-width: 1200px) {
-        .description {
-            font-size: 20px; /* Ukuran teks lebih besar untuk laptop */
-        }
-    
-        .menu-item {
-            font-size: 15px;
-        }
-    
-    }
-        
+        /* ========== UMUM ========== */
         body {
             font-family: "Times New Roman", sans-serif;
             margin: 0;
@@ -78,31 +14,33 @@
             color: white;
         }
         
+        /* ========== HEADER ========== */
         .header {
             background-color: #3E424B;
-            color: rgb(255, 255, 255);
+            color: white;
             text-align: center;
             padding: 20px;
             font-size: 24px;
             font-weight: bold;
         }
         
+        /* ========== LAYOUT UTAMA ========== */
         .container {
             display: flex;
             justify-content: space-between;
+            align-items: flex-start;
             padding: 20px;
             margin: 0 40px;
-            align-items: flex-start;
-            gap: 20px; /* Tambahkan jarak antara menu dan deskripsi */
+            gap: 20px;
         }
         
+        /* ========== MENU SAMPING ========== */
         .menu {
             width: 200px;
             background-color: #3E424B;
             padding: 10px;
             border-radius: 8px;
             max-height: 750px;
-            margin-right: 20px; /* Tambahkan jarak dari deskripsi */
         }
         
         .menu-item {
@@ -113,58 +51,70 @@
             background-color: #808588;
             cursor: pointer;
             text-align: left;
-            color:#ffffff;
+            color: #ffffff;
+            font-size: 15px;
         }
         
         .menu-item:hover {
             background-color: #0F1A2B;
         }
         
+        /* ========== DESKRIPSI ========== */
         .description {
-            position: relative;
             flex: 1;
+            position: relative;
             padding: 20px;
             border: 2px solid #787276;
-            height: calc(90vh - 80px);
             border-radius: 8px;
-            text-align: justify;
             background-size: cover;
             background-position: center;
+            text-align: justify;
+            max-height: 800px;
+            overflow: hidden; /* penting agar scroll hanya di content */
             display: flex;
             flex-direction: column;
-            max-height: 800px;
             margin-left: 20px;
-            overflow: hidden;
         }
         
-        /* Overlay transparan 70% */
+        /* Overlay gelap 70% */
         .description::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7); /* 70% gelap */
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
             border-radius: 8px;
             z-index: 1;
         }
         
-        /* Pastikan teks tetap di atas overlay */
-        .description-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        
+        /* Konten teks deskripsi */
         .description-content {
             position: relative;
             z-index: 2;
             overflow-y: auto;
             max-height: 100%;
             padding-right: 10px;
+            font-size: 16px;
+            line-height: 1.6;
         }
         
+        /* Scrollbar custom */
+        .description-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .description-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        .description-content::-webkit-scrollbar-thumb {
+            background: #aaa;
+            border-radius: 10px;
+        }
+        .description-content::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        
+        /* ========== GAMBAR DAN FIGURE ========== */
         figure {
             text-align: center;
             margin: 20px 0;
@@ -174,6 +124,7 @@
             width: 100%;
             max-width: 500px;
             border-radius: 8px;
+            height: auto;
         }
         
         figcaption {
@@ -182,6 +133,62 @@
             margin-top: 5px;
             font-style: italic;
         }
+        
+        /* ========== RESPONSIVE: PORTRAIT MODE ========== */
+        @media (orientation: portrait) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                gap: 10px;
+                margin: 0;
+            }
+        
+            .menu {
+                width: 100%;
+                max-width: 400px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+        
+            .menu-item {
+                width: 100%;
+                font-size: 13px;
+                margin: 5px 0;
+            }
+        
+            .description {
+                width: 100%;
+                max-width: 400px;
+                margin-left: 0;
+                padding: 15px;
+                font-size: 16px;
+            }
+        
+            .description-content {
+                font-size: 14px;
+                padding-right: 10px;
+            }
+        
+            figure img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        
+        /* ========== RESPONSIVE: LAYAR BESAR ========== */
+        @media (min-width: 1200px) {
+            .description {
+                font-size: 20px;
+            }
+        
+            .menu-item {
+                font-size: 15px;
+            }
+        }
+
     </style>
     </head>
 <body>
