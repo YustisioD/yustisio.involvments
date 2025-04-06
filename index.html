@@ -70,7 +70,7 @@
             background-position: center;
             text-align: justify;
             max-height: 800px;
-            overflow: hidden; /* penting agar scroll hanya di content */
+            overflow: hidden;
             display: flex;
             flex-direction: column;
             margin-left: 20px;
@@ -139,14 +139,18 @@
             .container {
                 flex-direction: column;
                 align-items: center;
-                padding: 10px;
-                gap: 10px;
+                padding: 10px 15px;
+                gap: 15px;
                 margin: 0;
             }
         
+            .menu,
+            .description {
+                width: 95%;
+                max-width: 360px;
+            }
+        
             .menu {
-                width: 100%;
-                max-width: 400px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -160,11 +164,8 @@
             }
         
             .description {
-                width: 100%;
-                max-width: 400px;
-                margin-left: 0;
                 padding: 15px;
-                font-size: 16px;
+                margin-left: 0;
             }
         
             .description-content {
@@ -188,7 +189,6 @@
                 font-size: 15px;
             }
         }
-
     </style>
     </head>
 <body>
